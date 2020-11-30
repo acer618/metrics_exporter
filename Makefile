@@ -26,7 +26,7 @@ protobuf: deps otel $(OTEL_PROTOS)
 .PHONY: protobuf build
 build:
 	go build -ldflags '-X main.version=$(VERSION)' -o bin/metrics_client src/main.go
-	go build -ldflags '-X main.version=$(VERSION)' -o bin/metrics_server src/metrics_service.go src/metrics_server.go
+	go build -ldflags '-X main.version=$(VERSION)' -o bin/metrics_server src/metrics_server.go
 
 .PHONY: test
 test: build

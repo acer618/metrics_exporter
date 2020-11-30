@@ -6,6 +6,7 @@ import (
 	"google.golang.org/grpc"
 
 	"github.com/open-telemetry/opentelemetry-proto/gen/go/collector/metrics/v1"
+	"metrics"
 )
 
 func main() {
@@ -14,13 +15,12 @@ func main() {
 		log.Fatalf("failed to listen on port 9999: %v", err)
 	}
 
-	s := metricsServiceServer{}
+	s := metrics.MetricsServiceServer{}
 
 	grpcServer := grpc.NewServer()
 	v1.RegisterMetricsServiceServer(grpcServer, &s)
 
 	if err := grpcServer.Serve(lis); err != nil {
-		log.Fatalf("failed to serve gRPC server over port 9999: %v", err);
+		log.Fatalf("failed to serve gRPC server over port 9999: %v", err)
 	}
-
 }
