@@ -1,0 +1,5 @@
+(Proto) generates stubs for otel specs for sending and receiving metrics (currently just empty send/recv of data)
+make build
+./bin/metrics_server
+./bin/metrics_client
+
